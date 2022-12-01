@@ -1,8 +1,11 @@
 <h4>Active Accounts</h4>
-<div *ngIf='signalRService.activeAccounts'>
+
+<h2 style="color:red">{{signalRService.connectionReconnecting$ | async}}</h2>
+
+<div *ngIf='signalRService.activeAccounts$'>
   <ul>
-    <!-- <li *ngFor='let data of signalRService.activeAccounts$ | async as activeAccounts'> -->
-    <li *ngFor='let data of signalRService.activeAccounts'>
+    <!-- <li *ngFor='let data of signalRService.activeAccounts'> -->
+    <li *ngFor='let data of signalRService.activeAccounts$ | async as activeAccounts'>
       <strong>Username: </strong> {{data.username}} - <strong>Account number: </strong> {{data.accountNumber}}
     </li>
   </ul>
