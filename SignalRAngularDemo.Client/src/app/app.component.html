@@ -1,0 +1,16 @@
+<h4>Active Accounts</h4>
+<div *ngIf='signalRService.activeAccounts'>
+  <ul>
+    <!-- <li *ngFor='let data of signalRService.activeAccounts$ | async as activeAccounts'> -->
+    <li *ngFor='let data of signalRService.activeAccounts'>
+      <strong>Username: </strong> {{data.username}} - <strong>Account number: </strong> {{data.accountNumber}}
+    </li>
+  </ul>
+</div>
+<hr/>
+<h4>Current Account</h4>
+<label>Username: </label>
+<input [(ngModel)]="currentAccount.username" />
+<label>Account number: </label>
+<input [(ngModel)]="currentAccount.accountNumber" />
+<button (click)="selectAccount()">Start working on account</button>
